@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+  }
+
+header {
+    grid-column: 1/13;
+    grid-row: 1;
+    background-color: red;
+}
+
+.sidebar {
+    grid-column: 1/3;
+    grid-row: 2/11;
+    background-color: green;
+}
+
+.search {
+    grid-column: 3/13;
+    grid-row: 2;
+    background-color: violet;
+}
+
+.table {
+    grid-column: 3/13;
+    grid-row: 3/11;
+    background-color: orange;
+}
+
+footer {
+    grid-column: 1/13;
+    grid-row: 11;
+    background-color: blue;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.item {
+    margin: auto;
+}
+
+@media screen and (max-width: 700px){
+    .sidebar {
+        grid-column: 1/13;
+        grid-row: 2;
+    }
+
+    .search {
+        grid-column: 1/13;
+        grid-row: 3;
+    }
+
+    .table {
+        grid-column: 1/13;
+        grid-row: 4/11;
+    }
+}  
+</style>
+<body>
+    <div class="container">
+        <header class="box">
+            <div class="item">
+                header
+            </div>
+            <div class="item">
+                header2
+             </div>
+        </header>
+        <div class="sidebar box">
+            <div class="item">
+                sidebar
+            </div>
+        </div>
+        <div class="search box">
+            <div class="item">
+                search
+            </div>
+        </div>
+        <div class="table box">
+            <div class="item">
+                my big table
+            </div>
+        </div>
+        <footer class="box">
+            <div class="item">
+                footer
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
