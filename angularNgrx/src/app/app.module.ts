@@ -1,9 +1,9 @@
 
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter';
-import { MyAppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store'
+import { counterReducer } from './counter'
+import { MyAppComponent } from './app.component'
 
 @NgModule({
   imports: [
