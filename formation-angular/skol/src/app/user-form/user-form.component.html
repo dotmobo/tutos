@@ -1,0 +1,9 @@
+<form [formGroup]="form" novalidate (ngSubmit)="saveUser()">
+    <label for="name" [class.error]="form.controls['name'].invalid">Name
+        <input formControlName="name" id="name" type="text">
+    </label>
+    <label for="email" [class.error]="form.controls['email'].invalid">Email
+        <input formControlName="email" id="email" type="text">
+    </label>
+    <button type="submit" class="button-success" [disabled]="form.invalid">Submit</button>
+</form>

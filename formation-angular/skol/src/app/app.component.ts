@@ -33,6 +33,22 @@ export class AppComponent {
     this.page = this.page > 1 ? this.page - 1 : 1
   }
 
+
+  save(user:User) {
+    this.users = this.users.map(
+      (u, j) => u.id === user.id
+        ? {
+          ...user,
+        }
+        : { ...u, }
+    )
+  }
+
+
+
+  
+
+
   changeSelected(i:number, user:User) {
     user.selected = !user.selected
     // pour que le pip fonctionne en mode pure, il faut réassigner l'adresse de l'objet user pour qu'il capte une modification
