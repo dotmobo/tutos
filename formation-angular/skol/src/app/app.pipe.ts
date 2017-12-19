@@ -11,8 +11,6 @@ export class ShowUserPipe implements PipeTransform {
   }
 }
 
-
-
 @Pipe({
   name: 'paginate',
   // pure: false

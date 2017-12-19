@@ -36,9 +36,19 @@ export class AppComponent {
   changeSelected(i:number, user:User) {
     user.selected = !user.selected
     // pour que le pip fonctionne en mode pure, il faut réassigner l'adresse de l'objet user pour qu'il capte une modification
-    this.users[i] = {
-        ...this.users[i],
-        !user.selected
-    }
+    // this.users[i] = {
+    //   ...this.users[i],
+    //   !user.selected
+    // }
+
+    this.users = this.users.map(
+      (u, j) => i === j
+        ? {
+          ...u,
+        }
+        : { ...u, }
+    )
+
+
   }
 }
