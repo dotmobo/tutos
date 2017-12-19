@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { ShowUserPipe, PaginatePipe } from './app.pipe';
 import { UserFormComponent } from './user-form/user-form.component'
 import { ReactiveFormsModule } from '@angular/forms'
+import { routing } from './app.routing';
+import { HomeComponent } from './home/home.component'
+import { UserListComponent } from './user-list/user-list.component'
 
 @NgModule({
   declarations: [
@@ -12,11 +15,14 @@ import { ReactiveFormsModule } from '@angular/forms'
     UserComponent,
     ShowUserPipe,
     PaginatePipe,
-    UserFormComponent
+    UserFormComponent,
+    HomeComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
