@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 // Configuration des routes
 const appRoutes: Routes = [
   {
-    path: 'home', // url (sans / initial)
+    path: '', // url (sans / initial)
     component: HomeComponent 
   },
   {
