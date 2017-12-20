@@ -1,9 +1,28 @@
-<form [formGroup]="form" novalidate (ngSubmit)="saveUser()">
-    <label for="name" [class.error]="form.controls['name'].invalid">Name
-        <input formControlName="name" id="name" type="text">
-    </label>
-    <label for="email" [class.error]="form.controls['email'].invalid">Email
-        <input formControlName="email" id="email" type="text">
-    </label>
-    <button type="submit" class="button-success" [disabled]="form.invalid">Submit</button>
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" formControlName="name" type="text">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" formControlName="email" type="text">
+        </div>
+    </div>
+
+    <div class="field is-grouped">
+        <div class="control">
+            <button type="submit" class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+            <button type="button" class="button is-danger" (click)=removeUser()>Remove</button>
+        </div>
+        <div class="control">
+            <button type="button" class="button is-text">Cancel</button>
+        </div>
+    </div>
 </form>

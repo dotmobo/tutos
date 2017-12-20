@@ -1,10 +1,14 @@
-<ul>
-  <li *ngFor="let user of users|paginate:page;let i = index">
-    <sk-user [user]="user" (selected)="changeSelected(i, $event)"></sk-user>
-    <sk-user-form [user]="user" (save)="save($event)"></sk-user-form>
-  </li>
-</ul>
-<input type="button" value="Previous" (click)="previousPage()">
-<input type="button" value="Next" (click)="nextPage()">
-<div>page: {{ page }}</div>
-<hr/>
+<table class="table is-fullwidth is-bordered is-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th style="width:1px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td><a [routerLink]="['/user', user.id]" class="button is-primary">edit</a></td>
+        </tr>
+    </tbody>
+</table>

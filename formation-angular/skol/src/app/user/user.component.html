@@ -1,4 +1,4 @@
-<h2 [class.active]="user.selected" (click)="toggle()">
-    {{ user | showuser }}
-    <span>({{ user.email }})</span>
-</h2>
+<div *ngIf="user$ | async as user; else loading">
+<sk-user-form [user]="user" (save)="save($event)" (remove)="remove($event)"></sk-user-form>
+
+</div>

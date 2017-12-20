@@ -1,6 +1,12 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    template: `<h2>Bienvenue</h2>`
+    selector: 'sk-home',
+    template: `HOME`
 })
-export class HomeComponent {}
+
+export class HomeComponent implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
+}

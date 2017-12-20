@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "fdfdfd",
+      "email": "staceyfitzgerald@datagen.com"
+    },
+    {
+      "id": 2,
+      "name": "Durhzeazaezae",
+      "email": "durhamflynn@datagen.com"
+    },
+    {
+      "id": 3,
+      "name": "Pacheco Barlow",
+      "email": "pachecobarlow@datagen.com"
+    },
+    {
+      "id": 4,
+      "name": "Sargent Buckley",
+      "email": "sargentbuckley@datagen.com"
+    }
+  ]
+}

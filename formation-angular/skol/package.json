@@ -4,11 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "run-p dev:*",
+    "dev:server": "ng serve",
+    "dev:api": "json-server -w db.json",
+    "dev:cast": "copycast",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "remove-postcss-custom-properties": "sed -i -E '/customProperties/s/^.*$//g' node_modules/@angular/cli/models/webpack-configs/styles.js"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +25,10 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "bulma": "^0.6.1",
+    "copycast": "^5.2.3",
     "core-js": "^2.4.1",
+    "json-server": "^0.12.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
@@ -29,6 +36,7 @@
     "@angular/cli": "1.6.1",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
+    "npm-run-all": "^4.1.2",
     "typescript": "~2.4.2"
   }
 }

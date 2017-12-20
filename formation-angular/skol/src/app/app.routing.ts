@@ -1,18 +1,25 @@
 import { Routes, RouterModule }   from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component'
 import { HomeComponent } from './home/home.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserComponent } from './user/user.component';
 
-// Configuration des routes
 const appRoutes: Routes = [
   {
-    path: '', // url (sans / initial)
-    component: HomeComponent 
+    path: '',
+    component: HomeComponent,
   },
   {
     path: 'users',
     component: UserListComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
-// Export du module de routing configuré
 export const routing = RouterModule.forRoot(appRoutes);
