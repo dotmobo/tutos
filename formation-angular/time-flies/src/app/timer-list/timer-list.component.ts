@@ -25,6 +25,10 @@ export class TimerListComponent implements OnInit {
     this.store.dispatch(new fromStore.PauseTimer(timer));
   }
 
+  deleteTimer(timer: Timer) {
+    this.store.dispatch(new fromStore.DeleteTimer(timer));
+  }
+
   ngOnInit() {
     this.timers$ = this.store.select(fromStore.selectAllTimers);
     this.store.dispatch(new fromStore.LoadTimers());

@@ -45,6 +45,14 @@ export class TimerService {
       .pipe(catchError(error => _throw(error)));
   }
 
+  deleteTimer(timer: Timer): Observable<Timer> {
+    return this.http
+      .delete<any>(`${environment.api_url}/${timer.id}`, timer)
+      .pipe(
+        map(x => timer),
+        catchError(error => _throw(error)));
+  }
+
   pauseTimer(timer: Timer) {
     timer = {
       ...timer,

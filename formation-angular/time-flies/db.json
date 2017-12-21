@@ -1,27 +1,6 @@
 {
   "timers": [
     {
-      "id": 1,
-      "title": "premier minuteur",
-      "start": 1513766076546,
-      "pause": 1513862910114,
-      "idle": 64611112
-    },
-    {
-      "id": 2,
-      "title": "minuteur 2",
-      "start": 1513766076546,
-      "pause": 0,
-      "idle": 72846422
-    },
-    {
-      "title": "3eme",
-      "id": 3,
-      "start": 1513766076546,
-      "pause": 1513851073337,
-      "idle": 969987
-    },
-    {
       "title": "four",
       "start": 1513784577371,
       "id": 4,

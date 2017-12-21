@@ -44,4 +44,15 @@ export class TimersEffects {
       map(timer => new fromTimers.ResumeTimerSuccess(timer)),
       catchError(error => of(new fromTimers.ResumeTimerFail(error)))
     );
+
+  @Effect()
+  DeleteTimer$ = this.actions$
+    .ofType(fromTimers.DELETE_TIMER)
+    .pipe(
+      switchMap((action: fromTimers.DeleteTimer) =>
+        this.timerService.deleteTimer(action.payload)
+      ),
+      map(timer => new fromTimers.DeleteTimerSuccess(timer)),
+      catchError(error => of(new fromTimers.DeleteTimerFail(error)))
+    );
 }

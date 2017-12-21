@@ -13,5 +13,8 @@
     <p class="card-footer-item">
       <a [routerLink]="['/timer', timer.id]" class="button">Edit</a>
     </p>
+    <p class="card-footer-item">
+      <button class="button is-danger" (click)="delete.emit(timer)">x</button>
+    </p>
   </footer>
 </div>

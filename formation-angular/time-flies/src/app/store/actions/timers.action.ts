@@ -61,6 +61,26 @@ export class ResumeTimerFail implements Action {
   constructor(public payload: any) {}
 }
 
+// DELETE TIMER
+export const DELETE_TIMER = '[Time Flies] Delete Timer';
+export const DELETE_TIMER_SUCCESS = '[Time Flies] Delete Timer Sucess';
+export const DELETE_TIMER_FAIL = '[Time Flies] Delete Timer Fail';
+
+export class DeleteTimer implements Action {
+  readonly type = DELETE_TIMER;
+  constructor(public payload: Timer) {}
+}
+
+export class DeleteTimerSuccess implements Action {
+  readonly type = DELETE_TIMER_SUCCESS;
+  constructor(public payload: any) {}
+}
+
+export class DeleteTimerFail implements Action {
+  readonly type = DELETE_TIMER_FAIL;
+  constructor(public payload: any) {}
+}
+
 export type TimersAction =
   | LoadTimers
   | LoadTimersSuccess
@@ -70,4 +90,7 @@ export type TimersAction =
   | PauseTimerSuccess
   | ResumeTimer
   | ResumeTimerFail
-  | ResumeTimerSuccess;
+  | ResumeTimerSuccess
+  | DeleteTimer
+  | DeleteTimerSuccess
+  | DeleteTimerFail;

@@ -59,6 +59,22 @@ export function reducer(
       };
     }
 
+    case fromTimers.DELETE_TIMER_SUCCESS: {
+      const timer = action.payload;
+      const entities = {
+        ...state.entities,
+      };
+
+      delete entities[timer.id];
+
+      console.log(entities);
+
+      return {
+        ...state,
+        entities,
+      };
+    }
+
   }
 
   return state;

@@ -17,4 +17,5 @@ export class TimerComponent {
   @Input() timer: Timer;
   @Output() pause = new EventEmitter();
   @Output() resume = new EventEmitter();
+  @Output() delete = new EventEmitter();
 }
