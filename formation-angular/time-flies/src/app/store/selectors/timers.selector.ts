@@ -1,8 +1,11 @@
 import { createSelector } from '@ngrx/store';
 
-import * as fromTimers from '../reducers';
+import * as fromTimers from '../reducers/timers.reducer';
+import * as fromRouter from '../reducers/router.reducer';
+import { TimerFliesState } from '../reducers';
+import { Timer } from '../../timer';
 
-export const selectFeature = (state: fromTimers.TimerFliesState) =>
+export const selectFeature = (state: TimerFliesState) =>
   state.timers;
 
 export const selectTimersEntities = createSelector(
@@ -19,3 +22,12 @@ export const selectTimersLoading = createSelector(
   selectFeature,
   state => state.loading
 );
+
+export const selectEditedTimer = createSelector(
+  selectTimersEntities,
+  fromRouter.selectRouterState,
+  (entities, router): Timer => {
+    return router.state && entities[router.state.params.id] || {}; // || {} pour 'new'
+  }
+);
+

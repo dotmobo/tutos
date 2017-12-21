@@ -17,20 +17,6 @@ export function reducer(
 ) {
   switch (action.type) {
 
-    case fromTimers.RESUME_TIMER_SUCCESS:
-    case fromTimers.PAUSE_TIMER_SUCCESS: {
-      const timer = action.payload;
-      const entities = {
-        ...state.entities,
-        [timer.id]: timer
-      };
-      return {
-        ...state,
-        entities,
-      };
-
-    }
-
     case fromTimers.LOAD_TIMERS: {
       return {
         ...state,
@@ -57,6 +43,19 @@ export function reducer(
         ...state,
         loaded: false,
         loading: false,
+      };
+    }
+
+    case fromTimers.RESUME_TIMER_SUCCESS:
+    case fromTimers.PAUSE_TIMER_SUCCESS: {
+      const timer = action.payload;
+      const entities = {
+        ...state.entities,
+        [timer.id]: timer
+      };
+      return {
+        ...state,
+        entities,
       };
     }
 

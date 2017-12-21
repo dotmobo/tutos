@@ -1,10 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { map, tap, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { Store } from '@ngrx/store';
 
-import { TimerService } from '../timer.service';
+import * as fromStore from '../store';
+
 import { Timer } from '../timer';
 
 @Component({
@@ -15,29 +16,20 @@ import { Timer } from '../timer';
 })
 export class TimerEditComponent implements OnInit {
   timer$: Observable<Timer>;
-  constructor(
-    private route: ActivatedRoute,
-    private timerService: TimerService,
-    private router: Router
-  ) {}
+  constructor(private store: Store<fromStore.TimerFliesState>) {}
 
   ngOnInit() {
-    this.timer$ = this.route.paramMap.pipe(
-      // tap((param: ParamMap) => { if(param.get('id')===null) _throw(() => { title: "" })}),
-      map((param: ParamMap) => parseInt(param.get('id'), 10)),
-
-      switchMap<number, Timer>(
-        (id: number) =>
-          id
-            ? this.timerService.getTimer(id)
-            : of({ title: 'place your title here' })
-      )
-    );
+    this.timer$ = this.store.select(fromStore.selectEditedTimer);
+    this.timer$.subscribe((timer) => {
+        if (!Object.keys(timer).length) {
+          this.store.dispatch(new fromStore.LoadTimers());
+        }
+    });
   }
 
   save(timer: Timer) {
-    this.timerService[timer.id ? 'updateTimer' : 'createTimer'](
-      timer
-    ).subscribe(() => this.router.navigate(['/']));
+    // this.timerService[timer.id ? 'updateTimer' : 'createTimer'](
+    //   timer
+    // ).subscribe(() => this.router.navigate(['/']));
   }
 }

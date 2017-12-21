@@ -1,12 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map, switchMap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 import * as fromStore from '../store';
-
 import { Timer } from '../timer';
-import { TimerService } from '../timer.service';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'tf-timer-list',
@@ -17,9 +15,7 @@ import { Store } from '@ngrx/store';
 export class TimerListComponent implements OnInit {
   timers$: Observable<Array<Timer>>;
 
-  constructor(
-    private store: Store<fromStore.TimerFliesState>) {}
-
+  constructor(private store: Store<fromStore.TimerFliesState>) {}
 
   resumeTimer(timer: Timer) {
     this.store.dispatch(new fromStore.ResumeTimer(timer));

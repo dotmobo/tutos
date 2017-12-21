@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
-import { Timer } from './timer';
+
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { catchError, share, map, tap } from 'rxjs/operators';
 import { _throw } from 'rxjs/observable/throw';
 import { interval } from 'rxjs/observable/interval';
+
+import { environment } from '../environments/environment';
+
+import { Timer } from './timer';
 
 @Injectable()
 export class TimerService {
@@ -60,5 +62,4 @@ export class TimerService {
     };
     return this.updateTimer(timer);
   }
-
 }
