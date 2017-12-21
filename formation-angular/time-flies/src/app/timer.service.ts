@@ -10,20 +10,14 @@ import { interval } from 'rxjs/observable/interval';
 
 @Injectable()
 export class TimerService {
-  private timers$ = new BehaviorSubject([]);
   ticks$ = interval(1000).pipe(share());
 
   constructor(private http: HttpClient) {}
 
   getTimers(): Observable<Array<Timer>> {
-    this.http
+    return this.http
       .get<Array<Timer>>(environment.api_url)
-      .pipe(catchError(error => _throw(error)))
-      .subscribe((timers: Array<Timer>) => {
-        this.timers$.next(timers);
-      });
-
-    return this.timers$.asObservable();
+      .pipe(catchError(error => _throw(error)));
   }
 
   getTimer(id: number): Observable<Timer> {
@@ -54,7 +48,7 @@ export class TimerService {
       ...timer,
       pause: Date.now()
     };
-    this.updateTimerAndNext(timer);
+    return this.updateTimer(timer);
   }
 
   resumeTimer(timer: Timer) {
@@ -64,16 +58,7 @@ export class TimerService {
       idle: timer.idle - timer.pause + now,
       pause: 0
     };
-    this.updateTimerAndNext(timer);
+    return this.updateTimer(timer);
   }
 
-  private updateTimerAndNext(timer: Timer) {
-    this.updateTimer(timer).subscribe((updatedTimer: Timer) => {
-      this.timers$.next(
-        this.timers$.value.map(
-          t => (t.id === updatedTimer.id ? updatedTimer : t)
-        )
-      );
-    });
-  }
 }

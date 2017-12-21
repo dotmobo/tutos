@@ -18,16 +18,15 @@ export class TimerListComponent implements OnInit {
   timers$: Observable<Array<Timer>>;
 
   constructor(
-    // private timerService: TimerService,
     private store: Store<fromStore.TimerFliesState>) {}
 
 
   resumeTimer(timer: Timer) {
-    // this.timerService.resumeTimer(timer);
+    this.store.dispatch(new fromStore.ResumeTimer(timer));
   }
 
   pauseTimer(timer: Timer) {
-    // this.timerService.pauseTimer(timer);
+    this.store.dispatch(new fromStore.PauseTimer(timer));
   }
 
   ngOnInit() {

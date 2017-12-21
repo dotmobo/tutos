@@ -4,8 +4,8 @@
       "id": 1,
       "title": "premier minuteur",
       "start": 1513766076546,
-      "pause": 1513791190024,
-      "idle": 3298613,
+      "pause": 1513853235784,
+      "idle": 64918251,
       "counter$": {
         "_isScalar": false,
         "source": {
@@ -45,7 +45,7 @@
       "title": "minuteur 2",
       "start": 1513766076546,
       "pause": 0,
-      "idle": 72411952,
+      "idle": 72850879,
       "counter$": {
         "_isScalar": false,
         "source": {
@@ -85,7 +85,7 @@
       "id": 3,
       "start": 1513766076546,
       "pause": 0,
-      "idle": 969987,
+      "idle": 1156393,
       "counter$": {
         "_isScalar": false,
         "source": {
