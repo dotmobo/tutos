@@ -1,0 +1,17 @@
+<div class="card">
+  <p class="card-header-title">
+    {{ timer.title }}
+  </p>
+  <div class="card-content">
+    <p class="title">{{ (timer | counter | async) || '...'}}</p>
+  </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <button class="button is-primary" (click)="pause.emit(timer)" *ngIf="!timer.pause">&#9208;</button>
+      <button class="button is-warning" (click)="resume.emit(timer)" *ngIf="timer.pause">&#9654;</button>
+    </p>
+    <p class="card-footer-item">
+      <a [routerLink]="['/timer', timer.id]" class="button">Edit</a>
+    </p>
+  </footer>
+</div>

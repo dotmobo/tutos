@@ -1,0 +1,3 @@
+<a class="button is-primary is-large" [routerLink]="['/timer','new']">New</a>
+
+<tf-timer *ngFor="let timer of timers$ | async" [timer]="timer" (resume)="resumeTimer($event)" (pause)="pauseTimer($event)"></tf-timer>
