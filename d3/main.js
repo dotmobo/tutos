@@ -58,16 +58,11 @@ d3.json("data.json", function(json) {
         // On déplace le tout
         .on("drag", function (d) {
             // On met à jour la position du groupe
-            d3.select(this).attr("x", d.x = d3.event.x)
-            d3.select(this).attr("y", d.y = d3.event.y)
-            // On déplace le texte
-            d3.select(this).select("text")
-                .attr("x", d.x = d3.event.x)
-                .attr("y", d.y = d3.event.y);
-            // On déplace le circle
-            d3.select(this).select("circle")
-                .attr("cx", d.x = d3.event.x)
-                .attr("cy", d.y = d3.event.y);
+            d.x += d3.event.dx
+            d.y += d3.event.dy
+            d3.select(this).attr("transform", function(d,i){
+                return "translate(" + [ d.x,d.y ] + ")"
+            })
         })
         // On stop le drag
         .on("end", function (d) {
