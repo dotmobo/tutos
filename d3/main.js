@@ -37,6 +37,7 @@ d3.json("data.json", function(json) {
         .on("zoom", () => {
             svg.attr("transform", d3.event.transform);
         })
+    // On applique le zoom sur le svg
     svg.call(zoom);
 
     // Comportement de drag
@@ -72,6 +73,7 @@ d3.json("data.json", function(json) {
         .on("end", function (d) {
             d3.select(this).classed("active", false);
         })
+    // on applique le drag and drop sur les nodes
     nodes.call(drag);
 
 
